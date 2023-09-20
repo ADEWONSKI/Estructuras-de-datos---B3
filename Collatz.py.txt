@@ -1,0 +1,33 @@
+def collatz_sequence(n):
+    sequence = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequence.append(n)
+    return sequence
+
+def main():
+    # Calcular N a partir del último dígito de tu código + 3
+    codigo = "2211863"  
+    ultimo_digito = int(codigo[-1])
+    N = ultimo_digito + 3
+
+    # Solicitar N números por teclado y calcular su promedio
+    numeros = []
+    for i in range(N):
+        numero = int(input(f"Ingrese el número {i + 1}: "))
+        numeros.append(numero)
+
+    promedio = sum(numeros) / N
+
+    # Calcular la secuencia de Collatz para el promedio
+    collatz_result = collatz_sequence(int(promedio))
+
+    # Imprimir la secuencia de Collatz
+    print(f"Secuencia de Collatz para el promedio {promedio}:")
+    print(collatz_result)
+
+if __name__ == "__main__":
+    main()
